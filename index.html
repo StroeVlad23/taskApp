@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <p id="title">Qtask</p>
+    </header>
+    <main>
+        
+        <div class="task">
+            <p class="task__question">What's your new task?</p>
+            <input autocomplete="off" oninput="dropdownTags()"  onkeydown="SaveTask(event)"  spellcheck="false" type="text" class="task__input" id="task__input">
+            <div class="task__tags">
+                <button class="task__tags__element">Study</li>
+                <button class="task__tags__element">Work</button>
+                <button class="task__tags__element">Shopping</button>
+                <button class="task__tags__element">Passions</button>
+                <button class="task__tags__element">Fun</button>
+            </div>
+        </div>
+        <div class="card">
+            <p class="date"></p>
+            <p id="card__task" class="card__task">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui laudantium odit quisquam, asperiores soluta temporibus excepturi esse vitae exercitationem ad tenetur quam optio fuga, numquam minus, rerum consequuntur neque! Repudiandae.</p>
+            <div class="card__buttons">
+                <div class="card__buttons__tags">
+                    <button class="card__buttons__tags__element">Study</button>
+                    <button class="card__buttons__tags__element">Work</button>
+                    <button class="card__buttons__tags__element">Shopping</button>
+                    <button class="card__buttons__tags__element">Passions</button>
+                    <button class="card__buttons__tags__element">Fun</button>
+                </div>
+                <div class="card__buttons__delete">
+                    <button class="card__buttons__delete__element">Delete</button>
+                </div>
+            </div>
+        </div> 
+    </main>
+    <script src="index.js"></script>
+</body>
+</html>

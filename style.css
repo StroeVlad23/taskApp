@@ -1,0 +1,176 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid gray;
+    height: 3rem;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#title {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.task {
+    display: flex;
+    justify-self: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.task p{
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    
+}
+
+.task__input {
+    font-size: 1.2rem;
+    height: 2.5rem;
+    width: 50vw;
+    margin-bottom: 20px;
+    border-style: solid;
+    border-radius: 20px;
+    padding: 0px 20px;
+    border: 2px solid gray;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    box-shadow: 20px;
+    outline: none;
+}
+
+.task__input:hover{
+    border-color: black;
+    box-shadow: 0 0 30px 1px rgba(51, 51, 51, 0.3);
+}
+
+.task__input:focus{
+    border-color: black;
+}
+
+.card__settings__date{
+    border: 2px solid black;
+    width: 53.5vw;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    gap: 0.5rem;
+}
+
+.card__settings__date__element{
+    
+    width: 4rem;
+    height: 1.3rem;
+    font-size: 1.01rem;
+    outline: none;
+    border: 2px solid gray;
+    border-radius: 8px;
+    text-align: center;
+    transition: border-color 0.5s ease;
+}
+
+.card__settings__date__element:hover{
+    border-color: black;
+}
+
+.card__settings__date__element:focus{
+    border-color: black;
+}
+
+.card{
+    font-size: 1.2rem;
+    border-style: solid;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-self: center;
+    flex-direction: column;
+    border: 2px solid gray;
+    padding: 30px 30px;
+    width: 50vw;
+    transition: border-color 0.5s ease-in;
+    animation: SlideIn 0.5s ease forwards;
+    
+}
+
+.card:hover{
+    border-color: black;
+}
+
+.card:focus{
+    border-color: black;
+}
+
+.card__task{
+   
+    height: 50%;
+}
+
+.card__buttons{
+   
+    display: flex;
+    justify-content:space-between;
+    margin-top: 20px;
+}
+
+.task__tags{
+    display: flex;
+    
+}
+
+.task__tags__element{
+    margin-right: 0.5rem;
+}
+
+.card__buttons__tags__element, .task__tags__element{
+    border: none;
+    border-radius: 10px;
+    padding: 0.4rem;
+    
+}
+
+.card__buttons__delete__element{
+    border: none;
+    border-radius: 10px;
+    padding: 0.4rem;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.card:hover .card__buttons__delete__element{
+    background-color: rgb(255, 145, 72);
+    color: white;
+}
+
+@keyframes SlideIn{
+    0%{
+        opacity: 0%;
+        transform: translateY(20px);
+    }
+
+    100%{
+        opacity: 100%;
+        transform: translateY(0px);
+    }
+}
+
+.remove{
+    transform: translateX(100px);
+    opacity: 0;
+}
+
