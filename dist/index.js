@@ -1,34 +1,43 @@
 "use strict";
-let SaveTask = (event) => {
-    let inputElement = document.getElementById("task__input");
-    let inputText = inputElement.value;
-    if (inputText.trim() !== "") {
-        if (event.key === "Enter") {
-            //  <div class='card'>
+// Exemplu de structură HTML:
+// <input id="taskInput" type="text" placeholder="Scrie un task și apasă Enter" />
+// <main></main>
+class TaskBox {
+    constructor(inputElement) {
+        this.inputElement = inputElement;
+        this.bindEvents();
+    }
+    bindEvents() {
+        this.inputElement.addEventListener("keydown", (event) => {
+            if (event.key === "Enter") {
+                event.preventDefault(); // Previi eventualul submit al formularului
+                this.CreateTaskBox(event);
+            }
+        });
+    }
+    CreateTaskBox(event) {
+        const currentInputText = this.inputElement.value.trim();
+        if (event.key === "Enter" && currentInputText !== "") {
+            console.log('OK');
             let card = document.createElement('div');
             card.classList.add('card');
-            // <p id="card__task" class="card__task">
             let cardTask = document.createElement('p');
             cardTask.classList.add('card__task');
-            cardTask.id = `card__task`;
-            // Set p element with input
-            cardTask.innerText = inputText;
+            cardTask.innerText = currentInputText;
             card.appendChild(cardTask);
-            inputText = '';
-            // <div class="card__buttons">
+            // Reset input după ce adaugi task-ul
+            this.inputElement.value = '';
             let cardButtons = document.createElement('div');
             cardButtons.classList.add('card__buttons');
-            // <div class="card__buttons__tags"
             let cardButtonsTags = document.createElement('div');
             cardButtonsTags.classList.add('card__buttons__tags');
-            // <button class="card__buttons__element"
             let cardButtonsDeleteElement = document.createElement('button');
             cardButtonsDeleteElement.classList.add('card__buttons__delete__element');
             cardButtonsDeleteElement.innerText = 'Delete';
             cardButtonsDeleteElement.addEventListener('click', function () {
                 card.classList.add("remove");
                 setTimeout(() => {
-                    card.remove(); // Șterge cardul din DOM după finalizarea animației
+                    card.remove();
                 }, 500);
             });
             cardButtons.appendChild(cardButtonsTags);
@@ -40,4 +49,14 @@ let SaveTask = (event) => {
             }
         }
     }
-};
+}
+// Instanțierea clasei TaskBox după încărcarea completă a DOM-ului
+document.addEventListener("DOMContentLoaded", () => {
+    const inputElement = document.getElementById('task__input');
+    if (inputElement) {
+        new TaskBox(inputElement);
+    }
+    else {
+        console.error("Elementul input nu a fost găsit!");
+    }
+});
